@@ -7,6 +7,7 @@
 buildscript {
     repositories {
         mavenCentral()
+        mavenLocal()
     }
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:2.0.5.RELEASE")
@@ -26,12 +27,14 @@ bootJar {
 
 repositories {
     mavenCentral()
+    mavenLocal()
 }
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
 dependencies {
+    compile group: 'com.microkubes', name: 'tools', version: '1.0-SNAPSHOT'
     compile("org.springframework.boot:spring-boot-starter-web")
     testCompile('org.springframework.boot:spring-boot-starter-test')
 }
