@@ -1,7 +1,7 @@
 package com.microkubes.examples.todo;
 
 public class Todo {
-    private Integer id;
+    private String id;
     private String title;
     private String content;
     private Long timestamp;
@@ -10,18 +10,18 @@ public class Todo {
 
     }
 
-    public Todo(Integer id, String title, String content, Long timestamp) {
+    public Todo(String id, String title, String content, Long timestamp) {
         this.id = id;
         this.title = title;
         this.content = content;
         this.timestamp = timestamp;
     }
 
-    public Integer getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
     }
 
