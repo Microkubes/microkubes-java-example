@@ -5,16 +5,18 @@ public class Todo {
     private String title;
     private String content;
     private Long timestamp;
+    private String owner;
 
     public Todo() {
 
     }
 
-    public Todo(String id, String title, String content, Long timestamp) {
+    public Todo(String id, String title, String content, Long timestamp, String owner) {
         this.id = id;
         this.title = title;
         this.content = content;
         this.timestamp = timestamp;
+        this.owner = owner;
     }
 
     public String getId() {
@@ -49,6 +51,14 @@ public class Todo {
         this.timestamp = timestamp;
     }
 
+    public String getOwner() {
+        return owner;
+    }
+
+    public void setOwner(String owner) {
+        this.owner = owner;
+    }
+
     public boolean equals(Object object) {
         if (this == object) return true;
         if (object == null || getClass() != object.getClass()) return false;
@@ -59,5 +69,14 @@ public class Todo {
 
     public int hashCode() {
         return java.util.Objects.hash(super.hashCode(), id);
+    }
+
+    @Override
+    public String toString() {
+        return "Todo{" +
+                "id='" + id + '\'' +
+                ", title='" + title + '\'' +
+                ", owner='" + owner + '\'' +
+                '}';
     }
 }

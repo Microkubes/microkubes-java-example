@@ -17,7 +17,7 @@ public class InMemoryTodoService implements TodoService {
         if (todo == null) {
             throw new ResourceNotFoundException(id);
         }
-        return null;
+        return todo;
     }
 
     @Override
@@ -26,6 +26,9 @@ public class InMemoryTodoService implements TodoService {
         if (existing != null){
             throw new BadRequestException("Already exists: " + todo.getId());
         }
+
+        todo.setTimestamp(new Date().getTime());
+
         existing = todos.putIfAbsent(todo.getId(), todo);
         if (existing != null){
             throw new BadRequestException("Already exists: " + todo.getId());
@@ -38,7 +41,7 @@ public class InMemoryTodoService implements TodoService {
         Todo existing = getTodoById(todo.getId());
         existing.setTitle(todo.getTitle());
         existing.setContent(todo.getContent());
-        existing.setTimestamp(todo.getTimestamp());
+        existing.setTimestamp(new Date().getTime());
 
         todos.putIfAbsent(todo.getId(), existing);
 
